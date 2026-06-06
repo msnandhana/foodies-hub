@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <h2>FOODIE'S HUB</h2>
+        <div>
+            <a href="index.html" style="margin-right: 15px; text-decoration: none; color: #333;">Home</a>
+            <a href="menu.html" style="margin-right: 15px; text-decoration: none; color: #333;">Menu</a>
+            <a href="cart.html" style="margin-right: 15px; text-decoration: none; color: #333;">Cart</a>
+            <a href="orders.html" style="text-decoration: none; color: #333;">My Orders</a>
+        </div>
+    </nav>
+
+    <h1 class="cart-title">🛒 My Cart</h1>
+
+    <div id="cartItems"></div>
+
+    <div id="cartTotalSection">
+        <h2>Total: <span id="total">₹0</span></h2>
+        <!-- Added Place Order Button here next to Clear Cart -->
+        <button onclick="checkoutCart()" class="order-btn">🚀 Place Order</button>
+        <button onclick="clearCart()" class="clear-btn">Clear Cart</button>
+    </div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("foodCart")) || [];
+let output = "";
+let total = 0; 
+
+if(cart.length === 0){
+    output = "<h2>Your Cart is Empty</h2>";
+    document.getElementById("cartTotalSection").style.display = "none";
+} else {
+    cart.forEach((item, index) => {
+        let itemQty = item.qty || 1;
+        let itemPrice = Number(item.price);
+        let itemTotal = itemPrice * itemQty;
+        total += itemTotal;
+
+        output += `
+        <div class="card">
+            <img src="${item.image}" width="200">
+            <h3>${item.name}</h3>
+            
+            <div class="cart-quantity-box">
+                <button onclick="decreaseCartQty(${index})">-</button>
+                <span>${itemQty}</span>
+                <button onclick="increaseCartQty(${index})">+</button>
+            </div>
+
+            <p>₹${itemTotal}</p>
+            <button onclick="removeFromCart(${index})" class="deselect-btn">❌ Remove</button>
+        </div>
+        `;
+    });
+}
+
+document.getElementById("cartItems").innerHTML = output;
+
+if(document.getElementById("total")) {
+    document.getElementById("total").innerText = "₹" + total;
+}
+
+// NEW FUNCTION: Handles moving all cart items into the orders page database
+function checkoutCart() {
+    let cart = JSON.parse(localStorage.getItem("foodCart")) || [];
+    if(cart.length === 0) return;
+
+    let name = prompt("Enter your name:");
+    let address = prompt("Enter address:");
+    let phone = prompt("Phone number:");
+
+    if (!name || !address || !phone) {
+        alert("Please fill out all billing details to complete your order.");
+        return;
+    }
+
+    let orders = JSON.parse(localStorage.getItem("foodOrders")) || [];
+
+    // Push each cart item into the orders storage array
+    cart.forEach(item => {
+        let itemQty = item.qty || 1;
+        orders.push({
+            product: item.name,
+            price: Number(item.price) * itemQty,
+            image: item.image,
+            qty: itemQty,
+            name: name,
+            address: address,
+            phone: phone
+        });
+    });
+
+    localStorage.setItem("foodOrders", JSON.stringify(orders));
+    localStorage.removeItem("foodCart"); // Clear the cart since it's ordered now
+
+    alert("All Items Ordered Successfully!");
+    window.location.href = "orders.html";
+}
+</script>
+
+<style>
+#cartItems{
+    display:grid;
+    margin-bottom: 0;
+    grid-template-columns:repeat(auto-fit,minmax(250px,300px));
+    gap:20px;
+    padding:20px;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    text-align:center;
+    padding:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.cart-quantity-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.cart-quantity-box button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 4px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-quantity-box button:hover {
+    background-color: #ddd;
+}
+
+.cart-quantity-box span {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
+.deselect-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.deselect-btn:hover {
+    background-color: #cc0000;
+}
+
+#cartTotalSection{
+    text-align:center;
+    padding:30px;
+    margin-top:20px;
+    border-top:2px solid #eee;
+}
+
+#cartTotalSection h2{
+    margin-bottom:20px;
+}
+
+/* Added explicit professional green formatting style for the checkout control */
+.order-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.order-btn:hover {
+    background-color: #219150;
+}
+
+.clear-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.clear-btn:hover {
+    background-color: #000;
+}
+</style>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

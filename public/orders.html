@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>My Orders</h1>
+
+<div id="orders"></div>
+
+<script>
+
+let orders = JSON.parse(localStorage.getItem("foodOrders")) || [];
+
+function displayOrders() {
+
+    let output = "";
+
+    if (orders.length === 0) {
+        output = "<h3>No Orders Found</h3>";
+    }
+
+    orders.forEach((order, index) => {
+
+        output += `
+        <div class="invoice-card">
+
+            <h2 class="invoice-title">🛍️ Current Order Invoice</h2>
+
+            <div class="customer-box">
+                <p><b>👤 Name:</b> ${order.name}</p>
+                <p><b>📍 Address:</b> ${order.address}</p>
+                <p><b>📞 Phone:</b> ${order.phone}</p>
+            </div>
+
+            <div class="product-box">
+                <img src="${order.image}" class="food-img">
+
+                <div>
+                    <h3>${order.product}</h3>
+                    <h4>₹${order.price}</h4>
+                </div>
+            </div>
+
+            <div class="total-box">
+                <span>Grand Total :</span>
+                <span>₹${order.price}</span>
+            </div>
+
+            <button class="cancel-btn"
+            onclick="cancelOrder(${index})">
+            ❌ Cancel Order
+            </button>
+
+        </div>
+        `;
+    });
+
+    document.getElementById("orders").innerHTML = output;
+}
+
+function cancelOrder(index){
+
+    orders.splice(index,1);
+
+    localStorage.setItem(
+        "foodOrders",
+        JSON.stringify(orders)
+    );
+
+    displayOrders();
+}
+
+displayOrders();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODIE'S HUB - Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="menu-page">
+
+    <nav>
+        <h2>FOODIE'S HUB</h2>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html">My Orders</a>
+
+        </div>
+    </nav>
+
+    <section class="menu-section">
+
+        <h2>🍚 Rice & Main Course</h2>
+
+        <div class="products">
+
+            <div class="card">
+                <img src="images/biriyani.jpg" alt="Biriyani">
+                <h3>Biriyani</h3>
+                <p>₹120</p>
+
+            <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Biriyani',120,'images/biriyani.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Biriyani','120','images/biriyani.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/mandhi.jpg" alt="Mandhi">
+                <h3>Mandhi</h3>
+                <p>₹250</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+           <button onclick="addToCart('Mandhi',250,'images/mandhi.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Mandhi','250','images/mandhi.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/friedrice.jpg" alt="Fried Rice">
+                <h3>Fried Rice</h3>
+                <p>₹90</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Fried Rice',90,'images/friedrice.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Fried Rice','90','images/friedrice.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/Noodles.jpg" alt="Noodles">
+                <h3>Noodles</h3>
+                <p>₹80</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+           <button onclick="addToCart('Noodles',80,'images/Noodles.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Noodles','80','images/Noodles.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+        </div>
+
+        <h2>🥖 Breakfast Items</h2>
+
+        <div class="products">
+
+            <div class="card">
+                <img src="images/porotta.jpg" alt="Porotta">
+                <h3>Porotta</h3>
+                <p>₹15</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Porotta',15,'images/porotta.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Porotta','15','images/porotta.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/chappathi.jpg" alt="Chappathi">
+                <h3>Chappathi</h3>
+                <p>₹12</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Chappathi',12,'images/chappathi.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Chappathi','12','images/chappathi.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/dosa.jpg" alt="Dosa">
+                <h3>Dosa</h3>
+                <p>₹40</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Dosa',40,'images/dosa.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Dosa','40','images/dosa.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/idli.jpg" alt="Idli">
+                <h3>Idli</h3>
+                <p>₹20</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Idli',20,'images/idli.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Idli','20','images/idli.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/nulputtu.jpg" alt="Noolputtu">
+                <h3>Noolputtu</h3>
+                <p>₹20</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Noolputtu',20,'images/nulputtu.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Noolputtu','20','images/nulputtu.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/puttu.jpg" alt="Puttu">
+                <h3>Puttu</h3>
+                <p>₹30</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Puttu',30,'images/puttu.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Puttu','30','images/puttu.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/Pathiri.jpg" alt="Pathiri">
+                <h3>Pathiri</h3>
+                <p>₹10</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Pathiri',10,'images/Pathiri.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Pathiri','10','images/Pathiri.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+        </div>
+
+        <h2>🍛 Curries</h2>
+
+        <div class="products">
+
+            <div class="card">
+                <img src="images/chickencurry.jpg" alt="Chicken Curry">
+                <h3>Chicken Curry</h3>
+                <p>₹150</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Chicken Curry',150,'images/chickencurry.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Chicken Curry','150','images/chickencurry.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/beefcurry.jpg" alt="Beef Curry">
+                <h3>Beef Curry</h3>
+                <p>₹170</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Beef Curry',170,'images/beefcurry.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Beef Curry','170','images/beefcurry.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/Chillychicken.jpg" alt="Chilly Chicken">
+                <h3>Chilly Chicken</h3>
+                <p>₹140</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Chilly Chicken',140,'images/Chillychicken.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Chilly Chicken','140','images/Chillychicken.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/eggcurry.jpg" alt="Egg Curry">
+                <h3>Egg Curry</h3>
+                <p>₹60</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Egg Curry',60,'images/eggcurry.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Egg Curry','60','images/eggcurry.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/kadalacurry.jpg" alt="Kadala Curry">
+                <h3>Kadala Curry</h3>
+                <p>₹40</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Kadala Curry',40,'images/kadalacurry.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Kadala Curry','40','images/kadalacurry.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/greenpeascurry.jpg" alt="Green Peas Curry">
+                <h3>Green Peas Curry</h3>
+                <p>₹50</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Green Peas Curry',50,'images/greenpeascurry.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Green Peas Curry','50','images/greenpeascurry.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+        </div>
+
+        <h2>🍔 Fast Food</h2>
+
+        <div class="products">
+
+            <div class="card">
+                <img src="images/burger.jpg" alt="Burger">
+                <h3>Burger</h3>
+                <p>₹80</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Burger',80,'images/burger.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Burger','80','images/burger.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/sandwitch.jpg" alt="Sandwich">
+                <h3>Sandwich</h3>
+                <p>₹60</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Sandwich',60,'images/sandwitch.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Sandwich','60','images/sandwitch.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/pizza.jpg" alt="Pizza">
+                <h3>Pizza</h3>
+                <p>₹250</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Pizza',250,'images/pizza.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Pizza','250','images/pizza.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+            <div class="card">
+                <img src="images/shawarma.jpg" alt="Shawarma">
+                <h3>Shawarma</h3>
+                <p>₹99</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Shawarma',99,'images/shawarma.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Shawarma','99','images/shawarma.jpg')">
+            ⚡ Buy Now </button>
+
+           </div>
+
+            <div class="card">
+                <img src="images/momos.jpg" alt="Momos">
+                <h3>Momos</h3>
+                <p>₹120</p>
+             <div class="quantity-box">
+                <button onclick="decrease(this)">-</button>
+                <span>1</span>
+               <button onclick="increase(this)">+</button>
+            </div>
+
+            <button onclick="addToCart('Momos',120,'images/momos.jpg')">
+            🛒 Add To Cart </button>
+            <button class="buy-btn" onclick="buyNow('Momos','120','images/momos.jpg')">
+            ⚡ Buy Now </button>
+           </div>
+
+        </div>
+
+    </section>
+<script src="js/script.js"></script>
+</body>
+</html>
